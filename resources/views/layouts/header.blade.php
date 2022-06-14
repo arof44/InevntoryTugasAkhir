@@ -41,7 +41,7 @@
                            @if(Auth::check())
                             Selamat Datang {{Auth::user()->name}}
                            @else
-                            Selamat Datang
+                            <h2><strong>Selamat Datang Inventory Kios Sahabat Tani</strong></h2>
                            @endif
                         </li>
                     </ul>

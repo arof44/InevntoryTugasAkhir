@@ -285,10 +285,10 @@ class Transaksi
                 $this->sendNotifTele($data);
             }elseif($detTele['result'] == 'not_set'){
                 $result = $detTele['result'];
-                Session::put('peringatan','Usernam telegram anda belum di tentukan!');
+                Session::put('peringatan','Username telegram anda belum di tentukan!');
             }else{
                 $result = $detTele['result'];
-                Session::put('peringatan','Usernam telegram anda belum memulai obrolan dengan bot!');
+                Session::put('peringatan','Username telegram anda belum memulai obrolan dengan bot!');
             }
         }
     }
@@ -340,7 +340,7 @@ class Transaksi
     public function sendNotifTele($arr)
     {
          $pesan = [
-             'text' => 'Hallo '.Auth::user()->name.' stok '.$arr['nama_barang'].' kamu uda kurang dari 5 yakin '.$arr['stock'].'!',
+             'text' => 'Hallo '.Auth::user()->name.' stok '.$arr['nama_barang'].' sudah kurang dari 5, Sisa stock sekarang '.$arr['stock'].'!',
              'disable_notification' => true
         ];
         Auth::user()->notify(new TelegramNotification($pesan));
